@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/cardview_light_background"
+    android:elevation="8dp"
+    android:padding="16dp"
+    android:layout_margin="8dp"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvSourceName"
+        android:text="source"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvAuthorName"
+        app:layout_constraintTop_toBottomOf="@+id/tvSourceName"
+        app:layout_constraintLeft_toLeftOf="@+id/tvSourceName"
+        android:text="author"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvAuthorName"
+        app:layout_constraintLeft_toLeftOf="@+id/tvAuthorName"
+        android:text="title"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvDescription"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintLeft_toLeftOf="@+id/tvTitle"
+        android:text="description"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvPublishAt"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+        app:layout_constraintLeft_toLeftOf="@+id/tvDescription"
+        android:text="publishAt"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
