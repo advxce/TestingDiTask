@@ -19,9 +19,6 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), Routes {
-    @Inject
-    lateinit var getAllNewsUseCase: GetAllNewsUseCase
-
     private val mainViewModel: MainViewModel by viewModels()
     lateinit var appComponent: AppComponent
 
