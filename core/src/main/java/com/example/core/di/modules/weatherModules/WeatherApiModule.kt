@@ -1,6 +1,7 @@
 package com.example.core.di.modules.weatherModules
 
 import com.example.core.BuildConfig
+import com.example.core.data.interceptors.ServerInterceptor
 import com.example.core.data.weatherApi.WeatherService
 import com.example.core.di.modules.weatherModules.WeatherBindModule
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -21,9 +22,12 @@ class WeatherApiModule {
     @Provides
     @Singleton
     @WeatherOkHttpClient
-    fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor) =
+    fun provideOkHttpClient(
+        loggingInterceptor: HttpLoggingInterceptor,
+        serverInterceptor: ServerInterceptor) =
         OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+            .addInterceptor(serverInterceptor)
             .build()
 
     @Provides
