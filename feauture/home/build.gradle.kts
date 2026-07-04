@@ -50,4 +50,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
     implementation("androidx.fragment:fragment-ktx:1.8.5")
+
+    testImplementation(libs.test.mockk)
+    testImplementation(libs.test.coroutines)
+    testImplementation(libs.test.turbine)
+
 }
