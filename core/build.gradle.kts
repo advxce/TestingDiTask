@@ -8,9 +8,13 @@ plugins {
 }
 
 val userProperties = Properties()
-userProperties.load(FileInputStream(rootProject.file("local.properties")))
-val newsApiKey =userProperties.getProperty("NEWS_API_KEY") ?: ""
-val weatherApiKey = userProperties.getProperty("WEATHER_API_KEY") ?: ""
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    userProperties.load(localPropertiesFile.inputStream())
+}
+
+val newsApiKey = System.getenv("NEWS_API_KEY") ?: userProperties.getProperty("NEWS_API_KEY") ?: ""
+val weatherApiKey = System.getenv("WEATHER_API_KEY") ?: userProperties.getProperty("WEATHER_API_KEY") ?: ""
 
 
 android {

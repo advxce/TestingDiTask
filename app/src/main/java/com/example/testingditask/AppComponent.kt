@@ -8,6 +8,7 @@ import com.example.core.di.CoreComponent
 import com.example.core.domain.repositories.NewsRepository
 import com.example.core.domain.repositories.WeatherRepository
 import com.example.home.di.HomeDeps
+import com.example.testingditask.liveCodding.CarComponent
 import dagger.Component
 import javax.inject.Singleton
 import javax.inject.Scope
@@ -17,7 +18,7 @@ import javax.inject.Scope
 @Retention(AnnotationRetention.RUNTIME)
 annotation class AppScope
 @AppScope
-@Component(modules = [AppModule::class], dependencies = [CoreComponent::class])
+@Component(modules = [AppModule::class], dependencies = [CoreComponent::class, CarComponent::class])
 interface AppComponent: CoreDeps, HomeDeps {
     override val newsService: NewsService
     override val weatherService: WeatherService
@@ -33,6 +34,7 @@ interface AppComponent: CoreDeps, HomeDeps {
     @Component.Builder
     interface Builder{
         fun coreComponent(coreComponent: CoreComponent): Builder
+        fun carComponent(carComponent: CarComponent): Builder
         fun build(): AppComponent
     }
 
